@@ -22,6 +22,20 @@ const Game = class {
                 $(`#r${i}`).append(`<td>${this.array[i][j]}</td>`)
             }
         }
+        $("td:contains('2')").css("background-color", "#eee4da")
+        $("td:contains('4')").css("background-color", "#eee4da")
+        $("td:contains('8')").css("background-color", "#f3b27a")
+        $("td:contains('16')").css("background-color", "#f3b27a")
+        $("td:contains('32')").css("background-color", "#f77c5f")
+        $("td:contains('64')").css("background-color", "#f77c5f")
+        $("td:contains('128')").css("background-color", "#edd073")
+        $("td:contains('256')").css("background-color", "#edd073")
+        $("td:contains('512')").css("background-color", "#edd073")
+        $("td:contains('1024')").css("background-color", "#006699")
+        $("td:contains('2048')").css("background-color", "#33cc66")
+        $("td:contains('4096')").css("background-color", "#990099")
+        $("td:contains('9192')").css("background-color", "#990099")
+
     }
 
     generateNum = () => {
@@ -268,4 +282,21 @@ const start = () => {
     $("#left").on('click', game.left)
     $("#down").on('click', game.down)
     $("#right").on('click', game.right)
+
+    document.onkeydown = (event) => {
+        switch (event.key) {
+            case "ArrowLeft":
+                game.left()
+                break;
+            case "ArrowRight":
+                game.right()
+                break;
+            case "ArrowUp":
+                game.up()
+                break;
+            case "ArrowDown":
+                game.down()
+                break;
+        }
+    };
 }
